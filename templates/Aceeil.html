@@ -1,0 +1,85 @@
+
+{% extends 'base/base.html' %}
+
+{% block title %}Acceil{% endblock title %}
+
+{% block content %}
+    <!-- Widgets  -->
+    
+    <div class="row">
+        <div class="col-lg-4 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-1">
+                            <i class="fa fa-cart-plus"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text"><span class="count">{%if user.STOCKTNKT   %}
+                                    {{Stocknkc }}</span></div>
+                                    <div class="stat-heading">Nombre de Produit Entrer</div> {%endif%}
+                                   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <div class="col-lg-4 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-2">
+                            <i class="fa fa-cart-plus"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text"><span class="count">{%if user.STOCKTNKT   %}
+                                    {{Sortinkc }}</span></div>
+                                    <div class="stat-heading">Nombre de Produit Sortie</div> {%endif%}
+                                    {%if user.STOCKTfl  %}
+                                    {{Sortifm }} </span></div>
+                                <div class="stat-heading">Nombre de Produit Sortie</div>{%endif%}
+                                {% if user.Utilisateur != True %} 
+                                {{NPT }}  </span></div>
+                           <div class="stat-heading">Nombre Produit dans touts Magasin </div>  {%endif%} 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-3">
+                            <i class="fa fa-cart-plus"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text"><span class="count">{%if user.STOCKTNKT   %}
+                                    {{tsnkc }} </span></div>
+                                    <div class="stat-heading">Nombre de Produit dans Magasin</div> {%endif%}
+                                   
+                                {% if user.Utilisateur != True %} 
+                                1 </span></div>
+                           <div class="stat-heading">Nombre de Magasin </div>  {%endif%} 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /Widgets -->
+    
+
+    <!-- /.orders -->
+{% endblock content %}

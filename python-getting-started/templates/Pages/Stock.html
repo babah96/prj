@@ -1,0 +1,90 @@
+
+{% extends 'base/base.html' %}
+
+{% block title %}Listes de Stock{% endblock title %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Acceil</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="#">Acceil</a></li>
+                            <li><a href="#">Stock </a></li>
+                            <li class="active">Listes</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock breadcrumbs %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="box-title">listes Stock Entrer </h4>
+            </div>
+            <div class="card-body--">
+                <div class="table-stats order-table ov-h">
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th class="serial">#</th>
+                                <th>liblle</th>
+                                
+                                <th>QTEx</th>
+                                <th>QTEn</th>
+                                <th>Fournisseur</th>
+                                <th>STOCKT</th>
+                                <th>date</th>
+                                <th></th>
+                                
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            {% for Stock in Stock %}
+                            <tr>
+                                <td class="serial">{{ forloop.counter }}</td>
+                                <td>{{Stock.liblle}}</td>
+                                
+                                <td>{{Stock.QTEx}}</td>
+                                <td>{{Stock.QTEn}}</td>
+                               
+                                
+                                <td>{{Stock.Fournisseur}}</td>
+                                <td>{{Stock.STOCKT}}</td>
+                                <td>{{Stock.date}}</td>
+                                
+                                <td class="btn-sm"><a href="{% url 'delStock' Stock.id %}">suprimer</a></td>
+                              
+                               
+                            </tr>
+                            {% endfor %}
+                            
+                                
+                            
+                        </tbody>
+                    </table>
+                </div> <!-- /.table-stats -->
+            </div>
+        </div> <!-- /.card -->
+    </div>  <!-- /.col-lg-8 -->
+
+    
+</div>
+{% endblock content %}

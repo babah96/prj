@@ -1,0 +1,79 @@
+<aside id="left-panel" class="left-panel">
+    <nav class="navbar navbar-expand-sm navbar-default">
+        <div id="main-menu" class="main-menu collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="{% url 'Acceil' %}"><i class="menu-icon fa fa-laptop"></i>Acceil </a>
+                </li>
+                <li class="menu-title">lwdiyan</li><!-- /.menu-title -->
+                {% if user.Utilisateur != True %}
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users "></i>Utlisateur</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-id-card-o"></i><a href="{% url 'Ajouteuser' %}">Ajouter</a></li>
+                        <li><i class="fa fa-th"></i><a href="{% url 'Utilisateur' %}">Lister</a></li>
+                    </ul>
+                </li>
+                
+               
+               
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-product-hunt"></i>Fournisseur</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-id-card-o"></i><a href="{% url 'AjoutFournisseur' %}">Ajouter</a></li>
+                        <li><i class="fa fa-th"></i><a href="{% url 'Fournisseur' %}">Lister</a></li>
+                    </ul>
+                </li>
+
+{% endif %} 
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-product-hunt"></i>Service</a>
+                    <ul class="sub-menu children dropdown-menu">
+                     {% if user.Utilisateur  %}     <li><i class="fa fa-id-card-o"></i><a href="{% url 'AjouteService' user.id %}">Ajouter</a></li>
+                        <li><i class="fa fa-th"></i><a href="{% url 'Service' user.id %}">Lister</a></li>{% endif %}
+                        {% if user.Utilisateur != True %}   <li><i class="fa fa-id-card-o"></i><a href="{% url 'Service2' %}">Lister Service nkc</a></li>   
+                                      {% endif %}
+                    </ul>
+                </li>
+
+                
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cart-plus"></i>Stock Entrer</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        
+                        {% if user.Utilisateur != True %} 
+                        <li><i class="fa fa-th"></i><a href="{% url 'Stocks2'%}">Lister Stock nkc Entrer</a></li>
+                          
+                         {% endif %}
+                         {% if user.Utilisateur  %}  <li><i class="fa fa-th"></i><a href="{% url 'Stocks' user.id %}">Lister</a></li> {% endif %}
+
+                    </ul>
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cart-plus"></i> Stock Sortis</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        {% if user.Utilisateur != True %} 
+                        <li><i class="fa fa-th"></i><a href="{% url 'sorti2'%}">Lister Stock nkc Entrer</a></li>
+                         
+                         {% endif %}
+                         {% if user.Utilisateur  %}  <li><i class="fa fa-th"></i><a href="{% url 'sorti' user.id %}">Lister</a></li> {% endif %}
+
+                    </ul>
+                      
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cart-plus"></i>STOCKS</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        {% if user.Utilisateur  %}     <li><i class="fa fa-id-card-o"></i><a href="{% url 'AjoutDesignation' user.id %}">Ajouter</a></li>     {% endif %}            
+                      {% if user.Utilisateur != True %}   <li><i class="fa fa-id-card-o"></i><a href="{% url 'STOCKS2' %}">Lister Stock nkc</a></li>   
+                                      {% endif %}
+                        {% if user.Utilisateur  %}   <li><i class="fa fa-th"></i><a href="{% url 'STOCKS' user.id %}">Lister</a></li>{% endif %}
+                        
+                    </ul>
+                </li>
+             
+                
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+</aside>

@@ -1,0 +1,80 @@
+
+{% extends 'base/base.html' %}
+
+{% block title %}Create liblle{% endblock title %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Acceil</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="#">Acceil</a></li>
+                            <li><a href="#">liblle</a></li>
+                            <li class="active">Ajouter</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock breadcrumbs %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">
+                    {%if msg %}
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                    <script>
+                        swal({
+                            title:"{{msg}}",
+                            icon:"success",
+                            buttons:"Ok",
+                          
+                        })
+                    </script>
+                     {%endif%}
+                </strong>
+            </div>
+            <div class="card-body">
+                <!-- Credit Card -->
+                <div id="pay-invoice">
+                    <div class="card-body">
+                        <form action="" method="POST" novalidate="novalidate">
+                            {% csrf_token %}
+                            
+                            <div class="form-group">
+                                <label for="sortno" class="control-label mb-1">liblle</label>
+                                {{ form.Designation }}
+                            </div>
+                           
+                            
+                            <div>
+                                <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                    <span id="payment-button-amount">Ajouter</span>
+                                </button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div> <!-- .card -->
+
+    </div><!--/.col-->
+</div>
+{% endblock content %}
